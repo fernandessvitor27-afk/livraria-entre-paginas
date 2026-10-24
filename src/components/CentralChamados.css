@@ -1,0 +1,233 @@
+/* ========================================
+   CENTRAL DE CHAMADOS — ENTRE PÁGINAS
+   Tema azul-marinho e dourado
+======================================== */
+
+.central-chamados {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  color: #17365D;
+  box-sizing: border-box;
+}
+
+.central-chamados,
+.central-chamados * {
+  box-sizing: border-box;
+}
+
+/* Títulos */
+
+.central-chamados h2 {
+  margin: 0 0 10px;
+  color: #17365D;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.central-chamados > p {
+  margin: 0 0 26px;
+  color: #626B78;
+  line-height: 1.6;
+}
+
+/* Formulário */
+
+.formulario-chamados {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E5DFD0;
+  border-top: 4px solid #C9A227;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(23, 54, 93, 0.08);
+}
+
+.central-chamados label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  color: #17365D;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Campos */
+
+.central-chamados input,
+.central-chamados select,
+.central-chamados textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #DED5BE;
+  border-radius: 9px;
+  background: #FFFFFF;
+  color: #26364A;
+  font: inherit;
+  font-weight: 400;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.central-chamados input:focus,
+.central-chamados select:focus,
+.central-chamados textarea:focus {
+  border-color: #C9A227;
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.18);
+}
+
+.central-chamados textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* Botão */
+
+.formulario-chamados button {
+  align-self: end;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 1px solid #C9A227;
+  border-radius: 9px;
+  background: #17365D;
+  color: #FFFFFF;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.formulario-chamados button:hover {
+  background: #244A78;
+  border-color: #D9B43B;
+}
+
+/* Mensagem do formulário */
+
+.formulario-chamados .mensagem-chamados {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #DED5BE;
+  border-left: 4px solid #C9A227;
+  border-radius: 8px;
+  background: #F7F3E8;
+  color: #17365D;
+}
+
+/* Filtro */
+
+.filtro-chamados {
+  max-width: 320px;
+  margin: 28px 0;
+}
+
+/* Título dos registros */
+
+.titulo-lista-chamados {
+  margin: 30px 0 18px;
+  color: #17365D;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/* Grade dos chamados */
+
+.lista-chamados {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Cartões individuais */
+
+.cartao-chamado {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  padding: 22px;
+  overflow-wrap: anywhere;
+  background: #FFFFFF;
+  border: 1px solid #E5DFD0;
+  border-top: 4px solid #C9A227;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(23, 54, 93, 0.07);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.cartao-chamado:hover {
+  box-shadow: 0 9px 24px rgba(23, 54, 93, 0.13);
+  transform: translateY(-2px);
+}
+
+.cartao-chamado h4 {
+  margin: 0 0 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #E5DFD0;
+  color: #17365D;
+  font-size: 17px;
+}
+
+.cartao-chamado p {
+  margin: 0;
+  color: #626B78;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.cartao-chamado strong {
+  color: #17365D;
+}
+
+.cartao-chamado label {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+/* Nenhum chamado encontrado */
+
+.chamados-vazio {
+  padding: 28px;
+  border: 1px dashed #C9A227;
+  border-radius: 12px;
+  background: #F7F3E8;
+  color: #17365D;
+  text-align: center;
+}
+
+/* Telas menores */
+
+@media (max-width: 760px) {
+  .central-chamados {
+    padding: 16px;
+  }
+
+  .central-chamados h2 {
+    font-size: 23px;
+  }
+
+  .formulario-chamados,
+  .lista-chamados {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .formulario-chamados {
+    padding: 18px;
+  }
+
+  .cartao-chamado {
+    padding: 18px;
+  }
+
+  .filtro-chamados {
+    max-width: none;
+  }
+}

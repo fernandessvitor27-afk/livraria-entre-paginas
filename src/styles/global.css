@@ -1,0 +1,571 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ============================================
+   ACESSO RÁPIDO — cards de módulos
+   ============================================ */
+
+.acesso-rapido {
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #eadfc6;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(11, 31, 77, 0.06);
+  text-align: left;
+}
+
+.acesso-rapido h2 {
+  margin: 0;
+  color: #0b1f4d;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 24px;
+  text-align: left;
+}
+
+.acesso-rapido > p {
+  margin: 6px 0 22px;
+  color: #7a7466;
+  font-size: 14px;
+  text-align: left;
+}
+
+.acesso-rapido .acesso-grade {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* "button.acesso-card" ganha da regra geral de button */
+.acesso-rapido button.acesso-card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+  min-height: 96px;
+  padding: 20px 46px 20px 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fffdf8 0%, #f9f0dc 100%);
+  border: 1px solid #eadfc6;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(11, 31, 77, 0.05);
+  color: #0b1f4d;
+  font: inherit;
+  letter-spacing: normal;
+  text-align: left;
+  text-transform: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* faixa dourada que aparece ao passar o mouse */
+.acesso-rapido button.acesso-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, #f1d9a0, #c9973a);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.acesso-rapido button.acesso-card:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, #fffdf8 0%, #f6e7c4 100%);
+  border-color: #c9973a;
+  box-shadow: 0 14px 28px rgba(201, 151, 58, 0.28);
+}
+
+.acesso-rapido button.acesso-card:hover::before {
+  opacity: 1;
+}
+
+.acesso-rapido button.acesso-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(201, 151, 58, 0.35);
+}
+
+.acesso-rapido .acesso-icone {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0b1f4d, #1b3a7a);
+  box-shadow: 0 6px 12px rgba(11, 31, 77, 0.3);
+  font-size: 22px;
+  transition: transform 0.25s ease;
+}
+
+.acesso-rapido button.acesso-card:hover .acesso-icone {
+  transform: scale(1.1) rotate(-6deg);
+}
+
+.acesso-rapido .acesso-card strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #0b1f4d;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.acesso-rapido .acesso-card small {
+  display: block;
+  color: #7a7466;
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.acesso-rapido .acesso-seta {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f1d9a0;
+  color: #0b1f4d;
+  font-size: 15px;
+  font-weight: 700;
+  transform: translateY(-50%);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.acesso-rapido button.acesso-card:hover .acesso-seta {
+  background: #c9973a;
+  transform: translateY(-50%) translateX(4px);
+}
+
+@media (max-width: 1000px) {
+  .acesso-rapido .acesso-grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .acesso-rapido .acesso-grade {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   DESTAQUES DO ACERVO
+   ============================================ */
+
+.destaques {
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #eadfc6;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(11, 31, 77, 0.06);
+  text-align: left;
+}
+
+.destaques-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eadfc6;
+}
+
+.destaques-etiqueta {
+  color: #c9973a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.destaques .destaques-topo h2 {
+  margin: 6px 0 0;
+  color: #0b1f4d;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 26px;
+  text-align: left;
+}
+
+.destaques .destaques-topo p {
+  margin: 6px 0 0;
+  color: #7a7466;
+  font-size: 14px;
+  text-align: left;
+}
+
+.destaques-contador {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #0b1f4d;
+  color: #f1d9a0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- Grade ---------- */
+
+.destaques-grade {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.destaques .destaques-livro {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #eadfc6;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(11, 31, 77, 0.05);
+  text-align: left;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.destaques .destaques-livro:hover {
+  transform: translateY(-5px);
+  border-color: #c9973a;
+  box-shadow: 0 16px 30px rgba(201, 151, 58, 0.22);
+}
+
+.destaques-capa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3 / 4;
+  padding: 18px;
+  background: linear-gradient(135deg, #f9f0dc, #fffdf8);
+}
+
+.destaques-capa img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  filter: drop-shadow(0 8px 14px rgba(11, 31, 77, 0.3));
+  transition: transform 0.35s ease;
+}
+
+.destaques .destaques-livro:hover .destaques-capa img {
+  transform: scale(1.05);
+}
+
+.destaques-capa span {
+  font-size: 56px;
+}
+
+/* ---------- Informações ---------- */
+
+.destaques-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px 18px 18px;
+  border-top: 1px solid #eadfc6;
+}
+
+.destaques-categoria {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f7edda;
+  color: #8a6416;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.destaques .destaques-info h3 {
+  margin: 10px 0 4px;
+  color: #0b1f4d;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.3;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: normal;
+  overflow-wrap: anywhere;
+}
+
+.destaques .destaques-autor {
+  margin: 0 0 14px;
+  color: #7a7466;
+  font-size: 13px;
+  letter-spacing: normal;
+  text-align: left;
+  text-transform: none;
+}
+
+.destaques-rodape {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #eadfc6;
+}
+
+.destaques-rodape strong {
+  color: #8a6416;
+  font-size: 16px;
+}
+
+.destaques-estoque {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f7edda;
+  color: #8a6416;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.destaques-estoque.esgotado {
+  background: #fdeceb;
+  color: #b42318;
+}
+
+/* ---------- Rodapé da seção ---------- */
+
+.destaques-base {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.destaques .destaques-base p {
+  margin: 0;
+  color: #7a7466;
+  font-size: 13px;
+}
+
+.destaques button.destaques-botao {
+  min-height: 46px;
+  padding: 12px 26px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f1d9a0 0%, #c9973a 100%);
+  box-shadow: 0 6px 16px rgba(201, 151, 58, 0.4);
+  color: #0b1f4d;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-transform: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.destaques button.destaques-botao:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 10px 22px rgba(201, 151, 58, 0.5);
+}
+
+/* ---------- Vazio ---------- */
+
+.destaques-vazio {
+  padding: 40px 20px;
+  border: 2px dashed #e3cf9f;
+  border-radius: 14px;
+  background: #fffdf8;
+  text-align: center;
+}
+
+.destaques-vazio > span {
+  font-size: 42px;
+}
+
+.destaques .destaques-vazio p {
+  margin: 8px 0 16px;
+  color: #7a7466;
+  text-align: center;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1100px) {
+  .destaques-grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .destaques {
+    padding: 18px;
+  }
+
+  .destaques-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .destaques-base {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* ============================================
+   DESTAQUES — GRADE PEQUENA (sobrescreve o resto)
+   ============================================ */
+
+.destaques .destaques-grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 150px));
+  justify-content: start;
+  gap: 14px;
+}
+
+.destaques .destaques-livro {
+  border-radius: 12px;
+}
+
+.destaques .destaques-capa {
+  aspect-ratio: 2 / 3;
+  padding: 8px;
+}
+
+.destaques .destaques-capa span {
+  font-size: 32px;
+}
+
+.destaques .destaques-info {
+  padding: 10px 10px 12px;
+}
+
+.destaques .destaques-categoria {
+  padding: 2px 7px;
+  font-size: 8px;
+}
+
+.destaques .destaques-info h3 {
+  min-height: 2.5em;
+  margin: 8px 0 2px;
+  font-size: 12.5px;
+  line-height: 1.25;
+}
+
+.destaques .destaques-autor {
+  margin: 0 0 8px;
+  font-size: 10.5px;
+}
+
+.destaques .destaques-rodape {
+  gap: 5px;
+  padding-top: 8px;
+}
+
+.destaques .destaques-rodape strong {
+  font-size: 13.5px;
+}
+
+.destaques .destaques-estoque {
+  padding: 3px 8px;
+  font-size: 9.5px;
+}
+
+@media (max-width: 600px) {
+  .destaques .destaques-grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+  }
+}
+
+/* Botão "Gerenciar livros": menor, azul-marinho, texto branco */
+.destaques button.destaques-botao {
+  min-height: 34px;
+  padding: 7px 16px;
+  border-radius: 9px;
+  background: #0b1f4d;
+  box-shadow: 0 3px 8px rgba(11, 31, 77, 0.25);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.destaques button.destaques-botao:hover {
+  background: #16306e;
+  filter: none;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(11, 31, 77, 0.35);
+}
+
+.sidebar-logo {
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(241, 217, 160, 0.08);
+  padding: 4px;
+}
+
+.sidebar-simbolo {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  color: #f1d9a0;
+}
+
+.sidebar-item.ativo .sidebar-simbolo {
+  color: #0b1f4d;
+}
+
+.acesso-rapido .acesso-icone {
+  color: #e0b254;
+}
+
+.acesso-rapido .acesso-icone svg {
+  stroke: #e0b254;
+  stroke-width: 2;
+}
+
+.acesso-rapido button.acesso-card:hover .acesso-icone {
+  color: #f6e3b0;
+}
+
+.acesso-rapido button.acesso-card:hover .acesso-icone svg {
+  stroke: #f6e3b0;
+}
