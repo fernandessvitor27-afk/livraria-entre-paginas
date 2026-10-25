@@ -6,7 +6,6 @@ type SidebarProps = {
   aoMudarSecao: (secao: string) => void
 }
 
-// Ícones em SVG (traço fino): herdam a cor do texto do menu
 function Icone({ children }: { children: ReactNode }) {
   return (
     <svg
@@ -101,6 +100,16 @@ const itensMenu: { nome: string; icone: ReactNode }[] = [
         <path d="m3 17 2 2 4-4" />
         <path d="m3 7 2 2 4-4" />
         <path d="M13 6h8M13 12h8M13 18h8" />
+      </Icone>
+    ),
+  },
+  {
+    nome: 'Cantinho do Café',
+    icone: (
+      <Icone>
+        <path d="M10 2v2M14 2v2M7 8h10l-1 12H8L7 8Z" />
+        <path d="M17 10h2a2 2 0 0 1 0 4h-2" />
+        <path d="M9 5h6" />
       </Icone>
     ),
   },

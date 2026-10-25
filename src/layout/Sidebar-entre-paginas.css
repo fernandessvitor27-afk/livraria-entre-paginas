@@ -1,0 +1,105 @@
+/* ===== Menu lateral — visual "Entre Páginas" ===== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background: #0d1b3a;
+  color: #e9e4d6;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.sidebar-marca {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 28px 20px 22px;
+  text-align: center;
+}
+
+.sidebar-logo {
+  width: 96px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.sidebar-marca h2 {
+  margin: 0;
+  color: #efdcb4;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.sidebar-marca p {
+  margin: 2px 0 0;
+  color: #d8b878;
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 14px;
+}
+
+.sidebar-legenda {
+  display: none;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: #e9e4d6;
+  font: inherit;
+  font-size: 0.92rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.sidebar-simbolo {
+  display: inline-flex;
+  color: #d8b878;
+}
+
+.sidebar-item.ativo {
+  border-color: rgba(216, 184, 120, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 600;
+}
+
+.sidebar-rodape {
+  margin: 14px 24px 26px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(216, 184, 120, 0.35);
+  color: #d8b878;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.sidebar-rodape p {
+  margin: 0;
+}
+
+.sidebar-rodape small {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}

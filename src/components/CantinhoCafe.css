@@ -1,0 +1,929 @@
+/* ===== Cantinho do Café — visual "Entre Páginas" ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+.cafe-pagina {
+  --cafe-azul: #0d1b3a;
+  --cafe-azul-2: #1a3160;
+  --cafe-dourado: #c9a45c;
+  --cafe-dourado-claro: #f1e2bd;
+  --cafe-creme: #faf5ec;
+  --cafe-borda: #eadfc8;
+  --cafe-texto: #1b2540;
+  --cafe-suave: #6f7280;
+  --cafe-serifa: 'Playfair Display', Georgia, serif;
+
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 0 36px;
+  color: var(--cafe-texto);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.cafe-pagina * {
+  box-sizing: border-box;
+}
+
+.cafe-pagina button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Banner ---------- */
+.cafe-pagina .cafe-banner {
+  position: relative;
+  display: block;
+  min-height: 230px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(201, 164, 92, 0.55);
+  border-radius: 20px;
+  background: var(--cafe-azul);
+  box-shadow: 0 14px 34px rgba(13, 27, 58, 0.22);
+}
+
+.cafe-pagina .cafe-banner-foto {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 70%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  animation: cafe-zoom 18s ease-in-out infinite alternate;
+}
+
+.cafe-pagina .cafe-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      var(--cafe-azul) 0%,
+      var(--cafe-azul) 32%,
+      rgba(13, 27, 58, 0.82) 50%,
+      rgba(13, 27, 58, 0.15) 82%,
+      rgba(13, 27, 58, 0.35) 100%
+    ),
+    radial-gradient(circle at 18% 20%, rgba(201, 164, 92, 0.18), transparent 45%);
+}
+
+.cafe-pagina .cafe-banner-conteudo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  max-width: 470px;
+  min-height: 230px;
+  padding: 32px 42px;
+  color: #fff;
+}
+
+.cafe-pagina .cafe-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--cafe-dourado);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+}
+
+.cafe-pagina .cafe-banner-conteudo h1 {
+  margin: 0;
+  color: var(--cafe-dourado-claro);
+  font-family: var(--cafe-serifa);
+  font-size: clamp(3rem, 6vw, 4.6rem);
+  font-weight: 600;
+  line-height: 1;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.cafe-pagina .cafe-banner-conteudo p {
+  max-width: 320px;
+  margin: 8px 0 0;
+  color: #f4efe4;
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+.cafe-pagina .cafe-enfeite {
+  display: flex;
+  align-items: center;
+  width: 280px;
+  margin-top: 16px;
+  color: var(--cafe-dourado);
+}
+
+.cafe-pagina .cafe-enfeite i {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cafe-dourado));
+}
+
+.cafe-pagina .cafe-enfeite b,
+.cafe-pagina .cafe-mensagem-enfeite b {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cafe-pagina .cafe-enfeite b {
+  margin-left: 8px;
+}
+
+/* ---------- Layout ---------- */
+.cafe-pagina .cafe-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ---------- Cardápio ---------- */
+.cafe-pagina .cafe-cardapio {
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.cafe-pagina .cafe-cardapio-topo {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 22px;
+  padding: 0 0 16px;
+  text-align: left;
+}
+
+.cafe-pagina .cafe-cardapio-topo::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cafe-dourado), rgba(201, 164, 92, 0));
+}
+
+.cafe-pagina .cafe-cardapio-topo > div {
+  text-align: left;
+}
+
+.cafe-pagina .cafe-cardapio-topo h2 {
+  margin: 0;
+  color: var(--cafe-azul);
+  font-family: var(--cafe-serifa);
+  font-size: 1.9rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.cafe-pagina .cafe-cardapio-topo p {
+  margin: 4px 0 0;
+  color: var(--cafe-suave);
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.cafe-pagina .cafe-botao-novo {
+  width: auto;
+  padding: 9px 18px;
+  border: 1px solid var(--cafe-dourado);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--cafe-azul);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.cafe-pagina .cafe-botao-novo:hover {
+  background: var(--cafe-azul);
+  color: var(--cafe-dourado-claro);
+  transform: translateY(-1px);
+}
+
+/* Grade menor: cabem mais cards por linha */
+.cafe-pagina .cafe-grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 16px;
+}
+
+.cafe-pagina .cafe-produto {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  overflow: visible;
+  border: 1px solid var(--cafe-borda);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(13, 27, 58, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+  animation: cafe-entrada 0.45s ease both;
+}
+
+.cafe-pagina .cafe-produto:nth-child(2) { animation-delay: 0.04s; }
+.cafe-pagina .cafe-produto:nth-child(3) { animation-delay: 0.08s; }
+.cafe-pagina .cafe-produto:nth-child(4) { animation-delay: 0.12s; }
+.cafe-pagina .cafe-produto:nth-child(5) { animation-delay: 0.16s; }
+.cafe-pagina .cafe-produto:nth-child(6) { animation-delay: 0.2s; }
+.cafe-pagina .cafe-produto:nth-child(7) { animation-delay: 0.24s; }
+.cafe-pagina .cafe-produto:nth-child(8) { animation-delay: 0.28s; }
+
+.cafe-pagina .cafe-produto:hover {
+  transform: translateY(-4px);
+  border-color: var(--cafe-dourado);
+  box-shadow: 0 14px 26px rgba(13, 27, 58, 0.14);
+}
+
+.cafe-pagina .cafe-produto-imagem {
+  position: relative;
+  width: 100%;
+  height: 118px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #eadfc8;
+}
+
+.cafe-pagina .cafe-produto-imagem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.cafe-pagina .cafe-produto:hover .cafe-produto-imagem img {
+  transform: scale(1.08);
+}
+
+.cafe-pagina .cafe-selo {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--cafe-dourado);
+  color: var(--cafe-azul);
+  font-size: 0.66rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  animation: cafe-pop 0.35s ease;
+}
+
+.cafe-pagina .cafe-produto-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 10px 4px 2px;
+}
+
+.cafe-pagina .cafe-produto-info h3 {
+  margin: 0;
+  color: var(--cafe-azul);
+  font-family: var(--cafe-serifa);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.cafe-pagina .cafe-produto-info p {
+  flex: 1;
+  min-height: 0;
+  margin: 4px 0 8px;
+  color: var(--cafe-suave);
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.cafe-pagina .cafe-produto-info > strong {
+  margin: 0 0 8px;
+  color: #a5802f;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.cafe-pagina .cafe-adicionar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 10px;
+  background: var(--cafe-azul);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s, transform 0.12s;
+}
+
+.cafe-pagina .cafe-adicionar:hover {
+  background: var(--cafe-azul-2);
+  color: var(--cafe-dourado-claro);
+}
+
+.cafe-pagina .cafe-adicionar:active {
+  transform: scale(0.96);
+}
+
+.cafe-pagina .cafe-produto-acoes {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 7px;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+
+.cafe-pagina .cafe-produto:hover .cafe-produto-acoes {
+  opacity: 1;
+}
+
+.cafe-pagina .cafe-produto-acoes button {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--cafe-suave);
+  font-size: 0.7rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cafe-pagina .cafe-produto-acoes button:hover {
+  color: var(--cafe-azul);
+}
+
+/* ---------- Formulário ---------- */
+.cafe-pagina .cafe-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+  padding: 22px;
+  border: 1px solid var(--cafe-borda);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(13, 27, 58, 0.06);
+}
+
+.cafe-pagina .cafe-formulario h3 {
+  margin: 0 0 4px;
+  color: var(--cafe-azul);
+  font-family: var(--cafe-serifa);
+}
+
+.cafe-pagina .cafe-formulario label {
+  color: var(--cafe-azul);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.cafe-pagina .cafe-formulario input,
+.cafe-pagina .cafe-formulario textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--cafe-borda);
+  border-radius: 9px;
+  background: var(--cafe-creme);
+  color: var(--cafe-texto);
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.cafe-pagina .cafe-formulario input:focus,
+.cafe-pagina .cafe-formulario textarea:focus {
+  outline: 2px solid var(--cafe-dourado);
+  outline-offset: 1px;
+}
+
+.cafe-pagina .cafe-formulario-acoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.cafe-pagina .cafe-formulario-acoes .cafe-adicionar {
+  width: auto;
+  padding: 9px 20px;
+}
+
+.cafe-pagina .cafe-limpar {
+  padding: 9px 16px;
+  border: 1px solid var(--cafe-borda);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--cafe-azul);
+  font-size: 0.82rem;
+  transition: background 0.2s;
+}
+
+.cafe-pagina .cafe-limpar:hover {
+  background: var(--cafe-creme);
+}
+
+/* ---------- Pedido ---------- */
+.cafe-pagina .cafe-pedido {
+  position: sticky;
+  top: 16px;
+  padding: 20px;
+  border: 1px solid var(--cafe-borda);
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fffdf8 0%, #fbf4e6 100%);
+  box-shadow: 0 10px 28px rgba(13, 27, 58, 0.09);
+}
+
+.cafe-pagina .cafe-pedido > h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--cafe-borda);
+  color: var(--cafe-azul);
+  font-family: var(--cafe-serifa);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.cafe-pagina .cafe-contador {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  margin-left: auto;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--cafe-dourado);
+  color: var(--cafe-azul);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.74rem;
+  font-style: normal;
+  font-weight: 700;
+  animation: cafe-pop 0.35s ease;
+}
+
+.cafe-pagina .cafe-pedido-vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 0 18px;
+  text-align: center;
+}
+
+.cafe-pagina .cafe-pedido-icone {
+  margin-bottom: 8px;
+  color: #d9cfba;
+}
+
+.cafe-pagina .cafe-pedido-vazio strong {
+  color: var(--cafe-azul);
+  font-size: 0.9rem;
+}
+
+.cafe-pagina .cafe-pedido-vazio p {
+  margin: 0;
+  color: var(--cafe-suave);
+  font-size: 0.78rem;
+}
+
+.cafe-pagina .cafe-pedido-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 340px;
+  padding: 0 2px 12px 0;
+  overflow-y: auto;
+}
+
+.cafe-pagina .cafe-pedido-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 8px;
+  border: 1px solid var(--cafe-borda);
+  border-radius: 12px;
+  background: #fff;
+  animation: cafe-entrada 0.35s ease both;
+}
+
+.cafe-pagina .cafe-pedido-foto {
+  flex: none;
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 3px 8px rgba(13, 27, 58, 0.18);
+}
+
+.cafe-pagina .cafe-pedido-dados {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cafe-pagina .cafe-pedido-dados strong {
+  overflow: hidden;
+  color: var(--cafe-azul);
+  font-size: 0.82rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cafe-pagina .cafe-pedido-dados p {
+  margin: 2px 0 0;
+  color: var(--cafe-suave);
+  font-size: 0.7rem;
+}
+
+.cafe-pagina .cafe-pedido-dados span {
+  margin-top: 2px;
+  color: #a5802f;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.cafe-pagina .cafe-quantidade {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.cafe-pagina .cafe-quantidade button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid var(--cafe-dourado);
+  border-radius: 50%;
+  background: #fff8e8;
+  color: var(--cafe-azul);
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: background 0.2s;
+}
+
+.cafe-pagina .cafe-quantidade button:hover {
+  background: var(--cafe-dourado);
+}
+
+.cafe-pagina .cafe-quantidade span {
+  min-width: 14px;
+  color: var(--cafe-azul);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.cafe-pagina .cafe-pedido-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px 0 0;
+  padding: 14px 0 4px;
+  border-top: 1px dashed var(--cafe-dourado);
+  color: var(--cafe-suave);
+  font-size: 0.82rem;
+}
+
+.cafe-pagina .cafe-pedido-total strong {
+  color: var(--cafe-azul);
+  font-family: var(--cafe-serifa);
+  font-size: 1.35rem;
+}
+
+.cafe-pagina .cafe-pedido > .cafe-limpar {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.cafe-pagina .cafe-mensagem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 18px 12px 12px;
+  border-top: 1px solid var(--cafe-borda);
+  background: transparent;
+  color: var(--cafe-dourado);
+  text-align: center;
+}
+
+.cafe-pagina .cafe-mensagem strong {
+  margin: 4px 0 0;
+  color: var(--cafe-azul);
+  font-family: var(--cafe-serifa);
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.cafe-pagina .cafe-mensagem p {
+  margin: 0;
+  color: var(--cafe-suave);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.cafe-pagina .cafe-convite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 11px 12px;
+  border: 1px solid var(--cafe-dourado);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f6e9c9, #ecd6a3);
+  color: var(--cafe-azul);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.cafe-pagina .cafe-convite:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(201, 164, 92, 0.35);
+}
+
+.cafe-pagina .cafe-mensagem-enfeite {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 12px;
+  color: var(--cafe-dourado);
+}
+
+.cafe-pagina .cafe-mensagem-enfeite i {
+  flex: 1;
+  height: 1px;
+  background: var(--cafe-dourado);
+  opacity: 0.55;
+}
+
+/* ---------- Seção de livros ---------- */
+.cafe-pagina .cafe-livros {
+  margin-top: 38px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.cafe-pagina .cafe-livros header {
+  position: relative;
+  margin: 0 0 20px;
+  padding: 0 0 14px;
+  text-align: left;
+}
+
+.cafe-pagina .cafe-livros header::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cafe-dourado), rgba(201, 164, 92, 0));
+}
+
+.cafe-pagina .cafe-livros header h2 {
+  margin: 0;
+  color: var(--cafe-azul);
+  font-family: var(--cafe-serifa);
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.cafe-pagina .cafe-livros header p {
+  margin: 4px 0 0;
+  color: var(--cafe-suave);
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.cafe-pagina .cafe-livros-lista {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cafe-pagina .cafe-livro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  transition: transform 0.25s ease;
+}
+
+.cafe-pagina .cafe-livro:hover {
+  transform: translateY(-6px) rotate(-1deg);
+}
+
+.cafe-pagina .cafe-livro-capa {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  aspect-ratio: 3 / 4;
+  min-height: 150px;
+  padding: 16px 12px 14px 22px;
+  border-radius: 4px 10px 10px 4px;
+  color: var(--cafe-dourado-claro);
+  box-shadow:
+    inset 6px 0 8px rgba(0, 0, 0, 0.28),
+    inset -1px 0 0 rgba(255, 255, 255, 0.12),
+    0 12px 20px rgba(13, 27, 58, 0.22);
+}
+
+.cafe-pagina .cafe-livro-capa::before {
+  content: '';
+  position: absolute;
+  inset: 8px 8px 8px 14px;
+  border: 1px solid rgba(241, 226, 189, 0.45);
+  border-radius: 2px 6px 6px 2px;
+  pointer-events: none;
+}
+
+.cafe-pagina .cafe-livro-capa svg {
+  flex: none;
+  opacity: 0.9;
+}
+
+.cafe-pagina .cafe-livro-capa strong {
+  margin: 12px 0 auto;
+  font-family: var(--cafe-serifa);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.cafe-pagina .cafe-livro-capa span {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.cafe-pagina .cafe-livro > p {
+  align-self: flex-start;
+  margin: 0;
+  padding: 4px 10px;
+  border: 1px solid var(--cafe-borda);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--cafe-suave);
+  font-size: 0.68rem;
+  line-height: 1.3;
+}
+
+.cafe-pagina .cafe-livro > p b {
+  color: #a5802f;
+  font-weight: 600;
+}
+
+@media (max-width: 1280px) {
+  .cafe-pagina .cafe-livros-lista {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Detalhes de cor ---------- */
+.cafe-pagina ::selection {
+  background: var(--cafe-dourado-claro);
+  color: var(--cafe-azul);
+}
+
+.cafe-pagina .cafe-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(circle at 85% 95%, rgba(214, 140, 60, 0.28), transparent 45%);
+  pointer-events: none;
+}
+
+.cafe-pagina .cafe-produto::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 18px;
+  left: 18px;
+  height: 3px;
+  border-radius: 0 0 6px 6px;
+  background: linear-gradient(90deg, #a5802f, #ecd9a6, #a5802f);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.cafe-pagina .cafe-produto:hover::before {
+  opacity: 1;
+}
+
+.cafe-pagina .cafe-pedido::before {
+  content: '';
+  display: block;
+  height: 4px;
+  margin: -20px -20px 16px;
+  border-radius: 18px 18px 0 0;
+  background: linear-gradient(90deg, #a5802f, #ecd9a6, #a5802f);
+}
+
+.cafe-pagina .cafe-pedido-lista::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cafe-pagina .cafe-pedido-lista::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: var(--cafe-dourado);
+}
+
+/* ---------- Animações ---------- */
+@keyframes cafe-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cafe-pop {
+  0% { transform: scale(0.6); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes cafe-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cafe-pagina * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 1024px) {
+  .cafe-pagina .cafe-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cafe-pagina .cafe-pedido {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .cafe-pagina .cafe-banner-conteudo {
+    padding: 24px 20px;
+  }
+
+  .cafe-pagina .cafe-banner-foto {
+    width: 100%;
+    opacity: 0.45;
+  }
+
+
+  .cafe-pagina .cafe-livros-lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cafe-pagina .cafe-cardapio-topo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cafe-pagina .cafe-grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

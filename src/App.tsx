@@ -8,6 +8,7 @@ import Livros from './components/Livros'
 import Catalogo from './components/Catalogo'
 import Orcamentos from './components/Orcamentos'
 import CentralChamados from './components/CentralChamados'
+import CantinhoCafe from './components/CantinhoCafe'
 
 import Sidebar from './layout/Sidebar'
 import Header from './layout/Header'
@@ -82,6 +83,8 @@ function App() {
     Orçamentos: 'Crie propostas e acompanhe os valores e as situações.',
     'Central de Chamados':
       'Registre solicitações e acompanhe os atendimentos.',
+      'Cantinho do Café':
+  'Desfrute de cafés, chás e delícias enquanto aprecia boas histórias.',
   }
 
   return (
@@ -118,6 +121,7 @@ function App() {
         {secao === 'Catálogo' && <Catalogo />}
         {secao === 'Orçamentos' && <Orcamentos />}
         {secao === 'Central de Chamados' && <CentralChamados />}
+        {secao === 'Cantinho do Café' && <CantinhoCafe />}
       </main>
     </div>
   )
